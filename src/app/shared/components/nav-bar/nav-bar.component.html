@@ -1,0 +1,29 @@
+<mat-toolbar
+  color="primary"
+  style="
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  "
+>
+  <div>
+    <button mat-button routerLink="/">Home</button>
+    <button mat-button [matMenuTriggerFor]="characters">
+      <mat-icon data-testid="more">more_vert</mat-icon>
+    </button>
+
+    <mat-menu #characters="matMenu">
+      <button data-testid="nav-heroes" mat-menu-item routerLink="/heroes">Heroes</button>
+      <button data-testid="nav-villains" mat-menu-item routerLink="/villains">Villains</button>
+    </mat-menu>
+
+    <span data-testid="total-heroes" style="margin-right: 1rem">Total heroes: {{ totalHeroes }}</span>
+    <span data-testid="total-villains">Total villains: {{ totalVillains }}</span>
+  </div>
+
+  <button data-testid="refetch-button" mat-mini-fab color="default" (click)="handleLoadCharacters()">
+    <mat-icon>cached</mat-icon>
+  </button>
+
+</mat-toolbar>
