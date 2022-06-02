@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { Store } from "@ngxs/store";
 import { HeroState } from "src/app/ngxs/states/hero.state";
@@ -20,14 +20,14 @@ import { Hero } from "../../hero.model";
   styleUrls: ["./heroes.component.css"],
 })
 export class HeroesComponent implements OnInit {
-  itemForm: FormGroup;
-  editedForm: FormGroup;
+  itemForm: UntypedFormGroup;
+  editedForm: UntypedFormGroup;
   heroes: Hero[];
   isLoading = false;
   editingTracker = "0";
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private router: Router,
     private store: Store
   ) {}
